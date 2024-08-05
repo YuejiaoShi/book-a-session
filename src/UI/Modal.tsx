@@ -1,11 +1,12 @@
-import React from "react";
+import { forwardRef } from "react";
 
-interface ModalProps {
+
+type ModalProps {
   // define props here
 }
 
-const Modal = ({ props }) => {
+const Modal = forwardRef((props, ref) => {
   return <div></div>;
-};
+})
 
 export default Modal;
