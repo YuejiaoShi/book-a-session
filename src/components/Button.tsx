@@ -12,7 +12,8 @@ function isAnchorProp(props: ButtonProps | AnchorProps): props is AnchorProps {
 }
 
 const Button: React.FC<ButtonProps | AnchorProps> = (props) => {
-  if (isAnchorProp(props)) return <a {...props} >// component content</a>;
+  if (isAnchorProp(props)) return <a {...props}></a>;
+  return <button {...props}></button>;
 };
 
 export default Button;
