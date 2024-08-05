@@ -1,4 +1,4 @@
-import { forwardRef, useImperativeHandle } from "react";
+import { forwardRef, useImperativeHandle, useRef } from "react";
 
 
 type ModalProps {
@@ -6,7 +6,8 @@ type ModalProps {
 }
 
 const Modal = forwardRef((props, ref) => {
-
+    const dialog = useRef<HTMLDialogElement>(null);
+    
     useImperativeHandle(ref, ()=>{});
 
   return <div></div>;
