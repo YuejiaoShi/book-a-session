@@ -16,15 +16,20 @@ type ButtonComponentProps = ButtonProps | LinkProps;
 
 const Button: React.FC<ButtonComponentProps> = (props) => {
   const { children, textOnly = false, to, ...rest } = props;
+  const className = `button${textOnly ? "button--text-only" : ""}`;
 
   if (to) {
     return (
-      <Link to={to} {...(rest as Omit<LinkProps, "to">)}>
+      <Link to={to} {...(rest as Omit<LinkProps, "to">)} className={className}>
         {children}
       </Link>
     );
   }
-  return <button {...(rest as Omit<ButtonProps, "to">)}>{children}</button>;
+  return (
+    <button {...(rest as Omit<ButtonProps, "to">)} className={className}>
+      {children}
+    </button>
+  );
 };
 
 export default Button;
