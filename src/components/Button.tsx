@@ -24,7 +24,7 @@ const Button: React.FC<ButtonComponentProps> = (props) => {
       </Link>
     );
   }
-  return <div></div>;
+  return <button {...(rest as Omit<ButtonProps, "to">)}>{children}</button>;
 };
 
 export default Button;
