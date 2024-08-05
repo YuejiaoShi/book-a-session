@@ -7,8 +7,14 @@ type ModalProps {
 
 const Modal = forwardRef((props, ref) => {
     const dialog = useRef<HTMLDialogElement>(null);
-    
-    useImperativeHandle(ref, ()=>{});
+
+    useImperativeHandle(ref, ()=>{ return {
+      open: () => {
+        if (dialog.current) {
+          dialog.current.showModal();
+        }
+      },
+    };});
 
   return <div></div>;
 })
