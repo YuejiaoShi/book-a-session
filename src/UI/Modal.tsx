@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, useImperativeHandle } from "react";
 
 
 type ModalProps {
@@ -6,6 +6,9 @@ type ModalProps {
 }
 
 const Modal = forwardRef((props, ref) => {
+
+    useImperativeHandle(ref, ()=>{});
+
   return <div></div>;
 })
 
