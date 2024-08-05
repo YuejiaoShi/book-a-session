@@ -5,11 +5,11 @@ type InputProps = {
   id: string;
 } & ComponentPropsWithoutRef<"input">;
 
-const Input: React.FC<InputProps> = ({}) => {
+const Input: React.FC<InputProps | HTMLInputElement> = ({}) => {
   return (
     <div>
-      <label htmlFor=""></label>
-      <input></input>
+      <label htmlFor={id}></label>
+      <input id={id}></input>
     </div>
   );
 };
