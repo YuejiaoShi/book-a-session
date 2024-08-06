@@ -1,22 +1,26 @@
-import { forwardRef, useImperativeHandle, useRef } from "react";
+import { forwardRef, ReactNode, useImperativeHandle, useRef } from "react";
+type ModalHandle = {
+  open: () => void;
+};
 
+type ModalProps = {
+  children: ReactNode;
+};
 
-type ModalProps {
-  // define props here
-}
+const Modal = forwardRef<ModalHandle, ModalProps>(({ children }, ref) => {
+  const dialog = useRef<HTMLDialogElement>(null);
 
-const Modal = forwardRef((props, ref) => {
-    const dialog = useRef<HTMLDialogElement>(null);
-
-    useImperativeHandle(ref, ()=>{ return {
+  useImperativeHandle(ref, () => {
+    return {
       open: () => {
         if (dialog.current) {
           dialog.current.showModal();
         }
       },
-    };});
+    };
+  });
 
-  return <div></div>;
-})
+  return <dialog>{children}</dialog>;
+});
 
 export default Modal;
