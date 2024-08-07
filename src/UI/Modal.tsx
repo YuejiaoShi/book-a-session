@@ -23,7 +23,7 @@ const Modal = forwardRef<ModalHandle, ModalProps>(
     });
 
     return (
-      <dialog ref={dialog} onClose={onClose}>
+      <dialog ref={dialog} onClose={onClose} className="modal">
         {children}
       </dialog>
     );
