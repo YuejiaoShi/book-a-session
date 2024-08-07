@@ -1,4 +1,6 @@
 import { forwardRef, ReactNode, useImperativeHandle, useRef } from "react";
+import { createPortal } from "react-dom";
+
 type ModalHandle = {
   open: () => void;
 };
@@ -22,10 +24,11 @@ const Modal = forwardRef<ModalHandle, ModalProps>(
       };
     });
 
-    return (
+    return createPortal(
       <dialog ref={dialog} onClose={onClose} className="modal">
         {children}
-      </dialog>
+      </dialog>,
+      document.getElementById("modal-root")!
     );
   }
 );
