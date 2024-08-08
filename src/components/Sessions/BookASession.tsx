@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Session } from "../../store/sessions-context";
 import { ModalHandle } from "../UI/Modal";
 
@@ -11,6 +11,11 @@ type BookASessionProps = {
 const BookASession: React.FC<BookASessionProps> = ({ session, onDone }) => {
   const modal = useRef<ModalHandle>(null);
 
+  useEffect(() => {
+    if (modal.current) {
+      modal.current.open();
+    }
+  }, []);
   return <div>// component content</div>;
 };
 
