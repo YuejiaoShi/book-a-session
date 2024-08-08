@@ -1,12 +1,18 @@
 import React from "react";
-import { type SessionItemProps } from "./Session";
+import Session, { type SessionItemProps } from "./Session";
 
 type SessionsListProps = {
   sessions: SessionItemProps[];
 };
 
 const SessionsList: React.FC<SessionsListProps> = ({ sessions }) => {
-  return <div>// component content</div>;
+  return  <ul>
+  {sessions.map((session) => (
+    <li>
+      <Session {...session} />
+    </li>
+  ))}
+</ul>;
 };
 
 export default SessionsList;
