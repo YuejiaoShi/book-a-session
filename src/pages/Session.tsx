@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { SESSIONS } from "../dummy-sessions.ts";
 import Button from "../components/UI/Button.tsx";
 import { useState } from "react";
+import BookASession from "../components/Sessions/BookASession.tsx";
 
 export default function SessionPage() {
   const params = useParams<{ id: string }>();
@@ -25,6 +26,7 @@ export default function SessionPage() {
 
   return (
     <main id="session-page">
+      <BookASession session={loadedSession} />
       <article>
         <header>
           <img src={loadedSession.image} alt={loadedSession.title} />
