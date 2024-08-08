@@ -23,12 +23,12 @@ const UpcomingSession: React.FC<UpcomingSessionProps> = ({
             year: "numeric",
           })}
         </time>
-        <p className="actions">
-          <Button textOnly onClick={onCancel}>
-            Cancel
-          </Button>
-        </p>
       </div>
+      <p className="actions">
+        <Button textOnly onClick={onCancel}>
+          Cancel
+        </Button>
+      </p>
     </article>
   );
 };
