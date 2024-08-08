@@ -27,6 +27,12 @@ function reducer(state: SessionState, action) {
       return {
         upcomingSessions: [...state.upcomingSessions, action.session],
       };
+    case "CANCEL_SESSION":
+      return {
+        upcomingSessions: state.upcomingSessions.filter(
+          (session) => session.id !== action.sessionId
+        ),
+      };
     default:
       return state;
   }
