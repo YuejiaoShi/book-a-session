@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode, useReducer } from "react";
 
 type Session = {
   id: string;
@@ -14,8 +14,12 @@ type SessionState = {
   upcomingSessions: Session[];
 };
 
-const SessionsContextProvider: React.FC<Props> = ({}) => {
+function reducer(state: SessionState, action) {}
+function SessionsContextProvider({ children }: { children: ReactNode }) {
+  const [sessionsState, dispatch] = useReducer(reducer, {
+    upcomingSessions: [],
+  });
   return <div>// component content</div>;
-};
+}
 
 export default SessionsContextProvider;
