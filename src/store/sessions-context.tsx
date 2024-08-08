@@ -1,4 +1,4 @@
-import { ReactNode, useReducer } from "react";
+import { createContext, ReactNode, useReducer } from "react";
 
 type Session = {
   id: string;
@@ -13,6 +13,12 @@ type Session = {
 type SessionState = {
   upcomingSessions: Session[];
 };
+
+type SessionContextProps = SessionState & {
+  bookSession: (session: Session) => void;
+  cancelSession: (sessionId: string) => void;
+};
+const SessionsContext = createContext<SessionContextProps | null>(null);
 
 type BookSessionAction = {
   type: "BOOK_SESSION";
