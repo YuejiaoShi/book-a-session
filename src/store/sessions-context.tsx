@@ -75,8 +75,16 @@ function SessionsContextProvider({ children }: { children: ReactNode }) {
   function cancelSession(sessionId: string) {
     dispatch({ type: "CANCEL_SESSION", sessionId });
   }
-
-  return <div>// component content</div>;
+  const contextValue = {
+    upcomingSessions: sessionsState.upcomingSessions,
+    bookSession,
+    cancelSession,
+  };
+  return (
+    <SessionsContext.Provider value={contextValue}>
+      {children}
+    </SessionsContext.Provider>
+  );
 }
 
 export default SessionsContextProvider;
