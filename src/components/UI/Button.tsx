@@ -15,8 +15,8 @@ type LinkProps = ComponentPropsWithoutRef<typeof Link> & {
 type ButtonComponentProps = ButtonProps | LinkProps;
 
 const Button: React.FC<ButtonComponentProps> = (props) => {
-  const { children, textOnly = false, to, ...rest } = props;
-  const className = `button${textOnly ? "button--text-only" : ""}`;
+  const { children, textOnly, to, ...rest } = props;
+  const className = `button ${textOnly ? "button--text-only" : ""}`;
 
   if (to) {
     return (
