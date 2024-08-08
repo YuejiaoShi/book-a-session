@@ -18,10 +18,15 @@ const BookASession: React.FC<BookASessionProps> = ({ session, onDone }) => {
       modal.current.open();
     }
   }, []);
+
+  function handleSubmit(event: FormData<HTMLFormControlsCollection>) {
+    event.preventDefault();
+  }
+
   return (
     <Modal ref={modal} onClose={onDone}>
       <h2>Book Session</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <Input label="Your name" id="name" name="name" type="text" />
         <Input label="Your email" id="email" name="email" type="email" />
         <p className="actions">
