@@ -11,6 +11,13 @@ const UpcomingSession: React.FC<UpcomingSessionProps> = ({ session }) => {
       <div>
         <h3>{session.title}</h3>
         <p>{session.summary}</p>
+        <time dateTime={new Date(session.date).toISOString()}>
+          {new Date(session.date).toLocaleDateString("en", {
+            day: "numeric",
+            month: "short",
+            year: "numeric",
+          })}
+        </time>
       </div>
     </article>
   );
