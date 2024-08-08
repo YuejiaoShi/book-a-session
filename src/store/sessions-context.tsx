@@ -17,6 +17,13 @@ type SessionState = {
 function reducer(state: SessionState, action) {
   switch (action.type) {
     case "BOOK_SESSION":
+      if (
+        state.upcomingSessions.some(
+          (session) => session.id === action.session.id
+        )
+      ) {
+        return state;
+      }
       return {
         upcomingSessions: [...state.upcomingSessions, action.session],
       };
