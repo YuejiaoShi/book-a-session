@@ -1,11 +1,16 @@
 import React from "react";
 import { Session } from "../../store/sessions-context";
+import Button from "../UI/Button";
 
 type UpcomingSessionProps = {
   session: Session;
+  onCancel: () => void;
 };
 
-const UpcomingSession: React.FC<UpcomingSessionProps> = ({ session }) => {
+const UpcomingSession: React.FC<UpcomingSessionProps> = ({
+  session,
+  onCancel,
+}) => {
   return (
     <article className="upcoming-session">
       <div>
@@ -18,6 +23,11 @@ const UpcomingSession: React.FC<UpcomingSessionProps> = ({ session }) => {
             year: "numeric",
           })}
         </time>
+        <p className="actions">
+          <Button textOnly onClick={onCancel}>
+            Cancel
+          </Button>
+        </p>
       </div>
     </article>
   );
