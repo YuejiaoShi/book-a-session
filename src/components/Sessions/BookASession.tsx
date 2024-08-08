@@ -26,6 +26,7 @@ const BookASession: React.FC<BookASessionProps> = ({ session, onDone }) => {
     const data = Object.fromEntries(formData);
     console.log(data);
     sessionsContext.bookSession(session);
+    onDone();
   }
 
   return (
