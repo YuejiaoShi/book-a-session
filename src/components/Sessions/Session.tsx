@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../UI/Button";
 
-type SessionItemProps = {
+export type SessionItemProps = {
   id: string;
   title: string;
   summary: string;
