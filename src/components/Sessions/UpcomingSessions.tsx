@@ -19,6 +19,10 @@ const UpcomingSessions: React.FC<UpcomingSessionsProps> = ({ onClose }) => {
     }
   }, []);
 
+  function handleCancelSession(sessionId: string) {
+    sessionsContext.cancelSession(sessionId);
+  }
+
   return (
     <Modal ref={modal} onClose={onClose}>
       <h2>Upcoming Sessions</h2>
@@ -26,7 +30,10 @@ const UpcomingSessions: React.FC<UpcomingSessionsProps> = ({ onClose }) => {
         <ul>
           {sessionsContext.upcomingSessions.map((session) => (
             <li>
-              <UpcomingSession session={session} />
+              <UpcomingSession
+                session={session}
+                onCancel={() => handleCancelSession(session.id)}
+              />
             </li>
           ))}
         </ul>
