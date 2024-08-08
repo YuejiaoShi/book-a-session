@@ -24,9 +24,13 @@ export default function SessionPage() {
     setIsBooking(true);
   }
 
+  function handleCloseBooking() {
+    setIsBooking(false);
+  }
+
   return (
     <main id="session-page">
-      <BookASession session={loadedSession} />
+      <BookASession session={loadedSession} onDone={handleCloseBooking} />
       <article>
         <header>
           <img src={loadedSession.image} alt={loadedSession.title} />
