@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Session } from "../../store/sessions-context";
 import Modal, { ModalHandle } from "../UI/Modal";
+import Input from "../UI/Input";
 
 type BookASessionProps = {
   session: Session;
@@ -19,7 +20,10 @@ const BookASession: React.FC<BookASessionProps> = ({ session, onDone }) => {
   return (
     <Modal ref={modal} onClose={onDone}>
       <h2>Book Session</h2>
-      <from></from>
+      <form>
+        <Input label="Your name" id="name" name="name" type="text" />
+        <Input label="Your email" id="email" name="email" type="email" />
+      </form>
     </Modal>
   );
 };
