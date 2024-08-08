@@ -16,6 +16,12 @@ type SessionState = {
 
 function reducer(state: SessionState, action) {
   switch (action.type) {
+    case "BOOK_SESSION":
+      return {
+        upcomingSessions: [...state.upcomingSessions, action.session],
+      };
+    default:
+      return state;
   }
 }
 function SessionsContextProvider({ children }: { children: ReactNode }) {
