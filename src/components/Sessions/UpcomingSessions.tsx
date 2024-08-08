@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import Modal, { ModalHandle } from "../UI/Modal";
 import { useSessionsContext } from "../../store/sessions-context";
 import Button from "../UI/Button";
+import UpcomingSession from "./UpcomingSession";
 
 type UpcomingSessionsProps = {
   onClose: () => void;
@@ -21,7 +22,15 @@ const UpcomingSessions: React.FC<UpcomingSessionsProps> = ({ onClose }) => {
   return (
     <Modal ref={modal} onClose={onClose}>
       <h2>Upcoming Sessions</h2>
-      {hasSessions && <ul></ul>}
+      {hasSessions && (
+        <ul>
+          {sessionsContext.upcomingSessions.map((session) => (
+            <li>
+              <UpcomingSession session={session} />
+            </li>
+          ))}
+        </ul>
+      )}
       {!hasSessions && <p>No upcoming sessions.</p>}
       <p className="actions">
         <Button onClick={onClose}>Close</Button>
