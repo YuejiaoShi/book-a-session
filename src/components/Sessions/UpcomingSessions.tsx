@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Modal, { ModalHandle } from "../UI/Modal";
 
 type UpcomingSessionsProps = {
@@ -7,6 +7,11 @@ type UpcomingSessionsProps = {
 
 const UpcomingSessions: React.FC<UpcomingSessionsProps> = ({ onClose }) => {
   const modal = useRef<ModalHandle>(null);
+  useEffect(() => {
+    if (modal.current) {
+      modal.current.open();
+    }
+  }, []);
 
   return (
     <Modal ref={modal} onClose={onClose}>
