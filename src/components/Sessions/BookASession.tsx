@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { Session } from "../../store/sessions-context";
 import Modal, { ModalHandle } from "../UI/Modal";
 import Input from "../UI/Input";
+import Button from "../UI/Button";
 
 type BookASessionProps = {
   session: Session;
@@ -23,6 +24,7 @@ const BookASession: React.FC<BookASessionProps> = ({ session, onDone }) => {
       <form>
         <Input label="Your name" id="name" name="name" type="text" />
         <Input label="Your email" id="email" name="email" type="email" />
+        <Button>Book Session</Button>
       </form>
     </Modal>
   );
