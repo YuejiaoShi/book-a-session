@@ -6,13 +6,15 @@ type SessionsListProps = {
 };
 
 const SessionsList: React.FC<SessionsListProps> = ({ sessions }) => {
-  return  <ul>
-  {sessions.map((session) => (
-    <li>
-      <Session {...session} />
-    </li>
-  ))}
-</ul>;
+  return (
+    <ul id="sessions-list">
+      {sessions.map((session) => (
+        <li key={session.id}>
+          <Session {...session} />
+        </li>
+      ))}
+    </ul>
+  );
 };
 
 export default SessionsList;
