@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Session } from "../../store/sessions-context";
+import { Session, useSessionsContext } from "../../store/sessions-context";
 import Modal, { ModalHandle } from "../UI/Modal";
 import Input from "../UI/Input";
 import Button from "../UI/Button";
@@ -12,6 +12,7 @@ type BookASessionProps = {
 
 const BookASession: React.FC<BookASessionProps> = ({ session, onDone }) => {
   const modal = useRef<ModalHandle>(null);
+  const sessionsContext = useSessionsContext();
 
   useEffect(() => {
     if (modal.current) {
@@ -21,6 +22,9 @@ const BookASession: React.FC<BookASessionProps> = ({ session, onDone }) => {
 
   function handleSubmit(event: FormData<HTMLFormControlsCollection>) {
     event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const data = Object.fromEntries(formData);
+    console.log(data);
   }
 
   return (
