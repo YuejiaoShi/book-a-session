@@ -14,6 +14,7 @@ const BookASession: React.FC<BookASessionProps> = ({ session, onDone }) => {
   const modal = useRef<ModalHandle>(null);
   const sessionsContext = useSessionsContext();
 
+  // open the Modal via its exposed `open` method when the component is mounted
   useEffect(() => {
     if (modal.current) {
       modal.current.open();
