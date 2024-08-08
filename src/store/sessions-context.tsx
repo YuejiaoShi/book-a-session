@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useReducer } from "react";
+import { createContext, ReactNode, useContext, useReducer } from "react";
 
 type Session = {
   id: string;
@@ -20,6 +20,14 @@ type SessionContextProps = SessionState & {
 };
 const SessionsContext = createContext<SessionContextProps | null>(null);
 
+export function useSessionsContext() {
+  const context = useContext(SessionsContext);
+  if (!context)
+    throw new Error(
+      "useSessionsContext hook must be used within a SessionsContextProvider."
+    );
+  return context;
+}
 type BookSessionAction = {
   type: "BOOK_SESSION";
   session: Session;
