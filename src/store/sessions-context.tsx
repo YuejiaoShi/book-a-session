@@ -14,7 +14,19 @@ type SessionState = {
   upcomingSessions: Session[];
 };
 
-function reducer(state: SessionState, action) {
+type BookSessionAction = {
+  type: "BOOK_SESSION";
+  session: Session;
+};
+
+type CancelSessionAction = {
+  type: "CANCEL_SESSION";
+  sessionId: string;
+};
+
+type SessionsAction = BookSessionAction | CancelSessionAction;
+
+function reducer(state: SessionState, action: SessionsAction) {
   switch (action.type) {
     case "BOOK_SESSION":
       if (
