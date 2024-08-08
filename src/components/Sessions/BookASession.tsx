@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Session } from "../../store/sessions-context";
-import { ModalHandle } from "../UI/Modal";
+import Modal, { ModalHandle } from "../UI/Modal";
 
 type BookASessionProps = {
   session: Session;
@@ -16,7 +16,12 @@ const BookASession: React.FC<BookASessionProps> = ({ session, onDone }) => {
       modal.current.open();
     }
   }, []);
-  return <div>// component content</div>;
+  return (
+    <Modal ref={modal} onClose={onDone}>
+      <h2>Book Session</h2>
+      <from></from>
+    </Modal>
+  );
 };
 
 export default BookASession;
