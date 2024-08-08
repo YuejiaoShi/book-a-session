@@ -24,6 +24,9 @@ const BookASession: React.FC<BookASessionProps> = ({ session, onDone }) => {
       <form>
         <Input label="Your name" id="name" name="name" type="text" />
         <Input label="Your email" id="email" name="email" type="email" />
+        <Button type="button" textOnly onClick={onDone}>
+          Cancel
+        </Button>
         <Button>Book Session</Button>
       </form>
     </Modal>
