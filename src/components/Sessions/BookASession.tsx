@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { FormEvent, useEffect, useRef } from "react";
 import { Session, useSessionsContext } from "../../store/sessions-context";
 import Modal, { ModalHandle } from "../UI/Modal";
 import Input from "../UI/Input";
@@ -20,11 +20,12 @@ const BookASession: React.FC<BookASessionProps> = ({ session, onDone }) => {
     }
   }, []);
 
-  function handleSubmit(event: FormData<HTMLFormControlsCollection>) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const data = Object.fromEntries(formData);
     console.log(data);
+    sessionsContext.bookSession(session);
   }
 
   return (
